@@ -1,0 +1,167 @@
+header {
+  grid-area: header;
+}
+
+aside {
+  grid-area: aside;
+  display: grid;
+  overflow-y: scroll;
+  scroll-behavior: smooth;
+  height: 300px;
+  position: fixed;
+  top: 190px;
+}
+
+main {
+  grid-area: content;
+
+}
+
+footer {
+  grid-area: footer;
+}
+
+body {
+  display: grid;
+  grid-template-columns: 250px 1fr;
+  grid-template-rows: 100px 1fr 100px;
+  grid-template-areas: "header header" "aside  content" "footer footer";
+  margin: 0;
+  border: 0;
+  background-color: tomato;
+}
+
+.galera div img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+main .galera>div {
+  border: 1px solid #000;
+  height: 100%;
+  margin: 10px;
+  overflow: hidden;
+  transition: ease-in-out .3s;
+
+}
+
+.galera div:first-child {
+  grid-area: span /2 /2;
+
+}
+
+.mostra::backdrop {
+  background-color: rgba(0, 0, 0, 0.8);
+  backdrop-filter: blur(2px);
+}
+
+main .galera>div:hover {
+  transform: scale(1.5);
+  z-index: 99;
+  box-shadow: 0 0 10px 5px rgba(0, 0, 0, 0.5);
+  cursor: pointer;
+  border-radius: 50%;
+}
+
+main {
+  border: solid black;
+}
+
+main .galera {
+  border: 1px solid rgb(6, 66, 154);
+  padding: 1rem;
+  display: grid;
+  gap: 1rem;
+  grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+  margin: solid 1px;
+  position: relative;
+  overflow: hidden;
+  transition: ease-in-out .3s;
+}
+
+.galera div:first-child {
+  grid-area: span 2 /span 2;
+
+}
+
+main .galera>div {
+  border: 1px solid #000;
+  height: 100%;
+  margin: 10px;
+  overflow: hidden;
+  transition: ease-in-out .3s;
+
+}
+
+main .galera div {
+  border: 1px solid #000;
+  min-width: 2vh;
+  min-height: 2vh;
+
+}
+
+div .mostra {
+  background-color: aqua;
+  border: solid black;
+  z-index: 10;
+  margin: 0;
+}
+
+.parada img {
+  height: 90vh;
+  width: 100%;
+
+}
+
+.fecha {
+  --size: 3rem;
+  --translate: calc(var(--size) / 3 * -1);
+  height: var(--size);
+  width: var(--size);
+  border-radius: 50%;
+  color: transparent;
+  position: absolute;
+  right: var(--translate);
+  top: var(--translate);
+}
+
+.facilita button {
+  width: 50%;
+  height: 100%;
+}
+
+.facilita {
+  width: 8vw;
+  height: 4vh;
+  background-color: aqua;
+  justify-self: end;
+  display: flex;
+}
+
+.passa-esquerda {
+  content: "-";
+  background-color: crimson;
+  color: #000;
+}
+
+.passa-direita {
+  background-color: violet;
+  content: "+";
+  color: #000;
+}
+
+.fecha::after {
+  content: "✕";
+  color: red;
+  font-size: calc(var(--size) / 2);
+}
+
+@media screen and (max-width: 600px) {
+  body {
+
+    grid-template-columns: 1fr;
+    grid-template-rows: 100px 100px 1fr 100px;
+    grid-template-areas: "header" "aside" "content" "footer";
+  }
+}
